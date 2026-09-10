@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武清人才-本地招聘求职与人才政策信息服务平台</title>
+    <meta name="description" content="武清人才网致力于为武清区企业和求职者提供全面、及时的招聘信息服务。涵盖最新职位推荐、人才政策解读、招聘会动态与职业指导，是武清本地专业的人才交流与服务平台。">
+    <meta name="keywords" content="武清人才,武清招聘,武清求职,武清工作,武清人才网,武清区招聘,天津武清人才市场">
+    <link rel="stylesheet" href="data:text/css;base64,Lm5vdC1leGlzdC1zdHlsZXtjb2xvcjojZmZmO30=">
+    <style>
+        /* ===== 全局重置与基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #f4f7fb;
+            color: #2c3e50;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== 页眉与导航 ===== */
+        .site-header {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #1e6fb9, #2a9d8f);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(30, 111, 185, 0.2);
+        }
+        .logo-text h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a2b3c;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        .logo-text p {
+            font-size: 0.8rem;
+            color: #5a7a9a;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #2c3e50;
+            transition: all 0.2s ease;
+        }
+        .main-nav a:hover, .main-nav a.active {
+            background: #eaf2f8;
+            color: #1e6fb9;
+        }
+        .nav-cta {
+            background: #1e6fb9;
+            color: #fff !important;
+            padding: 9px 20px !important;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(30, 111, 185, 0.25);
+        }
+        .nav-cta:hover {
+            background: #175a94;
+            color: #fff !important;
+        }
+
+        /* ===== 首屏 Hero 区域 ===== */
+        .hero-section {
+            background: linear-gradient(145deg, #e8f1fa 0%, #dae9f5 100%);
+            padding: 60px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: -100px;
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #1a2b3c;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .hero-content h2 span {
+            color: #1e6fb9;
+            position: relative;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #3d5a73;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 35px;
+            margin-top: 20px;
+        }
+        .hero-stat h3 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #1e6fb9;
+        }
+        .hero-stat span {
+            font-size: 0.9rem;
+            color: #5a7a9a;
+        }
+        .hero-search {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e3edf5;
+        }
+        .hero-search h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #1a2b3c;
+            font-weight: 600;
+        }
+        .search-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .search-field {
+            display: flex;
+            align-items: center;
+            background: #f4f7fb;
+            border-radius: 10px;
+            padding: 4px 15px;
+            border: 1px solid #dce6f0;
+        }
+        .search-field span {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .search-field input, .search-field select {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 12px 0;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+        .search-btn {
+            background: #1e6fb9;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .search-btn:hover {
+            background: #175a94;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(30, 111, 185, 0.3);
+        }
+        .hot-tags {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #7a8fa3;
+        }
+        .hot-tags a {
+            color: #1e6fb9;
+            margin-left: 5px;
+            font-weight: 500;
+        }
+
+        /* ===== 栏目通用 ===== */
+        .section {
+            padding: 55px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a2b3c;
+            position: relative;
+            padding-left: 18px;
+        }
+        .section-header h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 24px;
+            background: #1e6fb9;
+            border-radius: 3px;
+        }
+        .section-header .more-link {
+            color: #1e6fb9;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .section-header .more-link:hover {
+            text-decoration: underline;
+        }
+        .bg-white {
+            background: #ffffff;
+        }
+        .bg-light {
+            background: #f4f7fb;
+        }
+
+        /* ===== 职位卡片 ===== */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .job-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e9eff5;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(30, 111, 185, 0.08);
+            border-color: #c5d9e8;
+        }
+        .job-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .job-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a2b3c;
+        }
+        .job-salary {
+            color: #e07c2f;
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+        .job-company {
+            color: #5a7a9a;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .job-company i {
+            font-style: normal;
+            background: #eaf2f8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #1e6fb9;
+        }
+        .job-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto;
+            padding-top: 15px;
+        }
+        .job-tags span {
+            background: #f4f7fb;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #3d5a73;
+        }
+        .job-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed #e0e8f0;
+            font-size: 0.85rem;
+            color: #7a8fa3;
+        }
+        .job-card-footer .apply-btn {
+            background: #1e6fb9;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        .job-card-footer .apply-btn:hover {
+            background: #175a94;
+        }
+
+        /* ===== 政策资讯 ===== */
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+        }
+        .policy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .policy-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9eff5;
+            transition: padding-left 0.2s;
+        }
+        .policy-item:hover {
+            padding-left: 8px;
+        }
+        .policy-item:last-child {
+            border-bottom: none;
+        }
+        .policy-date {
+            flex-shrink: 0;
+            background: #eaf2f8;
+            border-radius: 8px;
+            padding: 6px 12px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #1e6fb9;
+            font-weight: 500;
+            height: fit-content;
+        }
+        .policy-item-content h4 {
+            font-size: 1.05rem;
+            color: #1a2b3c;
+            margin-bottom: 6px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .policy-item-content h4:hover {
+            color: #1e6fb9;
+        }
+        .policy-item-content p {
+            font-size: 0.9rem;
+            color: #5a7a9a;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .policy-sidebar {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #e3edf5;
+        }
+        .policy-sidebar h3 {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            color: #1a2b3c;
+            font-weight: 600;
+        }
+        .sidebar-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #dce6f0;
+            font-size: 0.9rem;
+        }
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            color: #3d5a73;
+        }
+        .sidebar-list a:hover {
+            color: #1e6fb9;
+        }
+        .sidebar-list span {
+            background: #eaf2f8;
+            border-radius: 10px;
+            padding: 0 8px;
+            font-size: 0.75rem;
+            color: #1e6fb9;
+        }
+
+        /* ===== 招聘会动态 ===== */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .event-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            border-left: 4px solid #1e6fb9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s;
+        }
+        .event-card:hover {
+            box-shadow: 0 8px 20px rgba(30, 111, 185, 0.1);
+        }
+        .event-card .event-date {
+            font-size: 0.8rem;
+            color: #1e6fb9;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .event-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1a2b3c;
+        }
+        .event-card p {
+            color: #5a7a9a;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        .event-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: #7a8fa3;
+        }
+
+        /* ===== 服务指南 ===== */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .service-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e9eff5;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: #1e6fb9;
+            box-shadow: 0 8px 20px rgba(30, 111, 185, 0.08);
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #1a2b3c;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: #5a7a9a;
+            line-height: 1.7;
+        }
+
+        /* ===== 常见问题 FAQ ===== */
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9eff5;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1a2b3c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #1e6fb9;
+            font-weight: 400;
+        }
+        .faq-answer {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eef3f8;
+            color: #5a7a9a;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ===== 页脚 ===== */
+        .site-footer {
+            background: #1a2b3c;
+            color: #a0b8cc;
+            padding: 50px 0 20px;
+            margin-top: 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-about h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .footer-about p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .footer-col a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            border-top: 1px solid #2c3e50;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b859c;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            .job-grid, .event-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 0;
+            }
+            .main-nav {
+                width: 100%;
+                overflow-x: auto;
+            }
+            .main-nav ul {
+                flex-wrap: nowrap;
+                padding-bottom: 5px;
+            }
+            .main-nav a {
+                white-space: nowrap;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            .hero-section {
+                padding: 40px 0;
+            }
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            .hero-stats {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            .job-grid, .event-grid, .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            .hero-search {
+                padding: 20px;
+            }
+            .faq-item {
+                padding: 15px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- ===== 页眉导航 ===== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area">
+                <div class="logo-icon">武</div>
+                <div class="logo-text">
+                    <h1>武清人才</h1>
+                    <p>WUQING TALENT</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">职位库</a></li>
+                    <li><a href="#">人才政策</a></li>
+                    <li><a href="#">招聘会</a></li>
+                    <li><a href="#">职业指导</a></li>
+                    <li><a href="#">企业服务</a></li>
+                    <li><a href="#" class="nav-cta">发布招聘</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== 首屏 Hero ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h2>武清人才 <span>一站式</span> 招聘求职平台</h2>
+                    <p>汇聚武清区优质企业与人才资源，提供精准职位匹配、最新人才政策解读与全方位就业服务，助力每一位求职者在家乡找到理想发展舞台。</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <h3>2,000+</h3>
+                            <span>在招企业</span>
+                        </div>
+                        <div class="hero-stat">
+                            <h3>8,500+</h3>
+                            <span>优质岗位</span>
+                        </div>
+                        <div class="hero-stat">
+                            <h3>12,000+</h3>
+                            <span>求职用户</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-search">
+                    <h3>🔍 快速查找职位</h3>
+                    <div class="search-box">
+                        <div class="search-field">
+                            <span>📌</span>
+                            <input type="text" placeholder="输入职位关键词，如：工程师、会计、设计师">
+                        </div>
+                        <div class="search-field">
+                            <span>🏢</span>
+                            <select>
+                                <option value="">选择行业领域</option>
+                                <option>智能制造</option>
+                                <option>生物医药</option>
+                                <option>现代服务</option>
+                                <option>IT/互联网</option>
+                                <option>教育培训</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+                        <button class="search-btn">立即搜索职位</button>
+                    </div>
+                    <div class="hot-tags">
+                        🔥 热门搜索：
+                        <a href="#">新媒体运营</a>
+                        <a href="#">机械设计</a>
+                        <a href="#">电商客服</a>
+                        <a href="#">人事专员</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 热门职位推荐 ===== -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门职位推荐</h2>
+                <a href="#" class="more-link">查看全部职位 →</a>
+            </div>
+            <div class="job-grid">
+                <article class="job-card">
+                    <div class="job-card-top">
+                        <h3>高级机械设计工程师</h3>
+                        <span class="job-salary">10-15K</span>
+                    </div>
+                    <div class="job-company">天津华信精密机械有限公司 <i>名企</i></div>
+                    <div class="job-tags">
+                        <span>武清开发区</span>
+                        <span>3-5年经验</span>
+                        <span>本科</span>
+                    </div>
+                    <div class="job-card-footer">
+                        <span>2天前发布</span>
+                        <a href="#" class="apply-btn">投递简历</a>
+                    </div>
+                </article>
+                <article class="job-card">
+                    <div class="job-card-top">
+                        <h3>Java开发工程师</h3>
+                        <span class="job-salary">12-18K</span>
+                    </div>
+                    <div class="job-company">天津云创科技有限公司 <i>五险一金</i></div>
+                    <div class="job-tags">
+                        <span>武清商务区</span>
+                        <span>1-3年</span>
+                        <span>大专以上</span>
+                    </div>
+                    <div class="job-card-footer">
+                        <span>今天发布</span>
+                        <a href="#" class="apply-btn">投递简历</a>
+                    </div>
+                </article>
+                <article class="job-card">
+                    <div class="job-card-top">
+                        <h3>财务主管</h3>
+                        <span class="job-salary">8-12K</span>
+                    </div>
+                    <div class="job-company">武清区某大型制造企业 <i>双休</i></div>
+                    <div class="job-tags">
+                        <span>杨村街</span>
+                        <span>5年以上</span>
+                        <span>本科</span>
+                    </div>
+                    <div class="job-card-footer">
+                        <span>3天前发布</span>
+                        <a href="#" class="apply-btn">投递简历</a>
+                    </div>
+                </article>
+                <article class="job-card">
+                    <div class="job-card-top">
+                        <h3>电商运营专员</h3>
+                        <span class="job-salary">6-10K</span>
+                    </div>
+                    <div class="job-company">天津恒达电子商务有限公司</div>
+                    <div class="job-tags">
+                        <span>京滨工业园</span>
+                        <span>经验不限</span>
+                        <span>大专</span>
+                    </div>
+                    <div class="job-card-footer">
+                        <span>昨天发布</span>
+                        <a href="#" class="apply-btn">投递简历</a>
+                    </div>
+                </article>
+                <article class="job-card">
+                    <div class="job-card-top">
+                        <h3>生物医药研究员</h3>
+                        <span class="job-salary">9-14K</span>
+                    </div>
+                    <div class="job-company">天津康达生物医药科技 <i>名企</i></div>
+                    <div class="job-tags">
+                        <span>武清开发区</span>
+                        <span>硕士</span>
+                        <span>可接收应届</span>
+                    </div>
+                    <div class="job-card-footer">
+                        <span>今天发布</span>
+                        <a href="#" class="apply-btn">投递简历</a>
+                    </div>
+                </article>
+                <article class="job-card">
+                    <div class="job-card-top">
+                        <h3>人力资源经理</h3>
+                        <span class="job-salary">10-15K</span>
+                    </div>
+                    <div class="job-company">天津武清万达广场商业管理</div>
+                    <div class="job-tags">
+                        <span>杨村街</span>
+                        <span>3-5年</span>
+                        <span>本科</span>
+                    </div>
+                    <div class="job-card-footer">
+                        <span>4天前发布</span>
+                        <a href="#" class="apply-btn">投递简历</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 人才政策资讯 ===== -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>武清人才政策与动态</h2>
+                <a href="#" class="more-link">更多政策 →</a>
+            </div>
+            <div class="policy-grid">
+                <div class="policy-list">
+                    <div class="policy-item">
+                        <div class="policy-date">2025-04-12</div>
+                        <div class="policy-item-content">
+                            <h4>武清区发布2025年人才引进培养若干措施，最高给予百万级资助</h4>
+                            <p>为进一步优化人才发展环境，武清区针对高层次人才、急需紧缺人才及青年人才推出分类支持政策，涵盖科研经费、安家补贴等多项支持。</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="policy-date">2025-04-02</div>
+                        <div class="policy-item-content">
+                            <h4>武清区举办春季大型招聘会，百余家重点企业提供岗位3000余个</h4>
+                            <p>本次招聘会聚焦智能制造、生物医药等主导产业，现场特设政策咨询台，为求职者提供档案、社保、落户等一站式解答。</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="policy-date">2025-03-20</div>
+                        <div class="policy-item-content">
+                            <h4>关于申报武清区人才公寓租赁补贴的通知</h4>
+                            <p>符合条件的来武清就业创业人才可申请每月500-1500元不等的租赁补贴，具体申报流程及材料已同步在平台公布。</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="policy-date">2025-03-08</div>
+                        <div class="policy-item-content">
+                            <h4>武清区启动“名校优生”选聘计划，面向全国重点高校招募</h4>
+                            <p>计划引进优秀应届毕业生进入区内重点企事业单位，提供专项培养路径与具有竞争力的薪酬保障。</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="policy-sidebar">
+                    <h3>📋 政策速览</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">人才落户办理指南 <span>热门</span></a></li>
+                        <li><a href="#">高校毕业生就业补贴 <span>新</span></a></li>
+                        <li><a href="#">企业吸纳就业奖励</a></li>
+                        <li><a href="#">创业担保贷款申请</a></li>
+                        <li><a href="#">技能提升补贴办法</a></li>
+                        <li><a href="#">柔性引进人才细则</a></li>
+                    </ul>
+                    <h3 style="margin-top: 25px;">📞 咨询电话</h3>
+                    <p style="font-size: 0.9rem; color: #3d5a73; margin-top: 10px;">武清区人才服务中心<br>022-8212-XXXX<br>工作日 8:30-17:30</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 招聘会动态 ===== -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>近期招聘会</h2>
+                <a href="#" class="more-link">全部排期 →</a>
+            </div>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="event-date">📅 2025年5月16日 09:00</div>
+                    <h3>武清区民营企业服务月专场招聘会</h3>
+                    <p>涵盖装备制造、现代服务业等，预计参会企业80家，提供岗位1200余个。</p>
+                    <div class="event-location">📍 武清区人力资源服务中心</div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">📅 2025年5月24日 14:00</div>
+                    <h3>京津产业新城·生物医药人才对接会</h3>
+                    <p>定向邀约生物医药领域研发、质量、生产等专业人才，现场面试直通。</p>
+                    <div class="event-location">📍 京津产业新城管委会</div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">📅 2025年6月7日 09:30</div>
+                    <h3>高校毕业生就业见习专场双选会</h3>
+                    <p>联合区内见习基地，面向2025届及往届离校未就业毕业生开展。</p>
+                    <div class="event-location">📍 武清区文化公园·人才广场</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 人才服务指南 ===== -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>全流程人才服务指南</h2>
+                <span style="color: #5a7a9a; font-size: 0.95rem;">从求职到安居，武清人才为您提供全方位支持</span>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="service-icon">📝</span>
+                    <h3>求职指导</h3>
+                    <p>简历优化、面试技巧、职业规划一对一咨询，提升求职竞争力。</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>人才安居</h3>
+                    <p>人才公寓申请、购房补贴政策解读，助您安心扎根武清。</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📚</span>
+                    <h3>技能提升</h3>
+                    <p>免费职业技能培训课程报名，涵盖数字技能、现代服务等热门领域。</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">⚖️</span>
+                    <h3>劳动维权</h3>
+                    <p>劳动合同签订指导、劳动争议调解咨询，保障您的合法权益。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 常见问题 FAQ ===== -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-header" style="justify-content: center; text-align: center;">
+                <h2 style="padding-left: 0;">求职者常见问题</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">在武清求职，有哪些主流渠道？</div>
+                    <div class="faq-answer">除了本平台外，武清区人力资源服务中心每周三上午举办常规现场招聘会。此外，区内重点企业通常也会通过官方公众号发布招聘信息。建议求职者多关注线上平台并积极参与线下活动，拓宽信息获取渠道。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">外地人来武清工作，如何办理落户？</div>
+                    <div class="faq-answer">武清区执行天津市海河英才行动计划及区内人才引进政策。符合条件的学历型、资格型、技能型人才可通过“天津公安”APP线上提交落户申请。具体条件可咨询武清区人才服务中心或辖区派出所户籍科。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">哪些人才可以申请武清区人才公寓？</div>
+                    <div class="faq-answer">一般面向在武清区重点企业就业、且在本市无自有住房的各类人才。根据人才层级不同，公寓租金标准及补贴政策有所差异，通常需由所在企业统一向主管部门提出申请。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">应届毕业生在武清就业有哪些补贴政策？</div>
+                    <div class="faq-answer">武清区为吸引高校毕业生来区就业，提供一次性就业补贴、租房补贴及创业扶持等支持。此外，毕业年度内的高校毕业生还可享受免费的就业技能培训和创业培训服务，详情可咨询区人社局。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 页脚 ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>武清人才网</h3>
+                    <p>武清人才网是面向武清区本地的公益性、综合性人才服务信息平台。我们致力于连接企业与人才，传递最新政策资讯，打造高效、透明、温暖的就业服务环境。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>求职服务</h4>
+                    <ul>
+                        <li><a href="#">职位搜索</a></li>
+                        <li><a href="#">简历中心</a></li>
+                        <li><a href="#">面试技巧</a></li>
+                        <li><a href="#">薪酬查询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>企业服务</h4>
+                    <ul>
+                        <li><a href="#">发布职位</a></li>
+                        <li><a href="#">人才推荐</a></li>
+                        <li><a href="#">校园招聘</a></li>
+                        <li><a href="#">HR工具箱</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>📍 天津市武清区雍阳西道</li>
+                        <li>📞 022-8212-XXXX</li>
+                        <li>✉️ talent@wuqing.gov.cn</li>
+                        <li>🕗 周一至周五 8:30-17:30</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 武清人才网 版权所有 | 津ICP备XXXXXXXX号 | 本站信息仅供参考，请以官方发布为准</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
