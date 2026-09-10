@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛马娘固有技能-全角色固有技能效果与发动条件详解</title>
+    <meta name="description" content="赛马娘固有技能是每位马娘独有的核心技能，本文全面介绍固有技能的解锁条件、进化机制、发动时机、技能效果与培养策略，帮助训练员理解如何围绕固有技能构建培养方案。">
+    <meta name="keywords" content="赛马娘固有技能,赛马娘,固有技能,技能效果,技能发动,赛马娘攻略">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+            color: #fff;
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: #ffd166;
+        }
+        .header-nav {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .header-nav a {
+            color: #d0d8e8;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .header-nav a:hover {
+            color: #ffd166;
+            border-bottom-color: #ffd166;
+        }
+        .hero {
+            background: linear-gradient(145deg, #1a1a2e 0%, #0f3460 100%);
+            color: #fff;
+            padding: 60px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,209,102,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+        .hero p {
+            font-size: 17px;
+            max-width: 760px;
+            color: #c8d6e5;
+            margin-bottom: 12px;
+        }
+        .hero-tags {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .hero-tags span {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ffd166;
+            backdrop-filter: blur(4px);
+        }
+        .section {
+            padding: 50px 0;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 16px;
+            border-left: 5px solid #e94560;
+            color: #1a1a2e;
+        }
+        .section-sub {
+            color: #576574;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border-top: 4px solid #e94560;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            font-size: 18px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card .rarity {
+            font-size: 12px;
+            background: #ffeaa7;
+            color: #2d3436;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .card .effect {
+            font-size: 14px;
+            color: #2d3436;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 3px solid #0984e3;
+        }
+        .card p {
+            font-size: 14px;
+            color: #576574;
+            margin-bottom: 6px;
+        }
+        .card .condition {
+            font-size: 13px;
+            color: #e17055;
+            font-weight: 600;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        .info-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .info-box h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 12px;
+        }
+        .info-box ul {
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 10px;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 600px;
+        }
+        th {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .faq-item h4 {
+            font-size: 16px;
+            color: #e94560;
+            margin-bottom: 8px;
+        }
+        .faq-item p {
+            font-size: 14px;
+            color: #2d3436;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+            border-left: 5px solid #e17055;
+        }
+        .tip-box h3 {
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: #1a1a2e;
+            color: #a0a8b8;
+            padding: 40px 0 30px;
+            margin-top: 40px;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: #a0a8b8;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            color: #ffd166;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        .notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-nav {
+                gap: 16px;
+            }
+            .section {
+                padding: 35px 0;
+            }
+            .section-title {
+                font-size: 22px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .logo {
+                font-size: 22px;
+            }
+            .hero {
+                padding: 40px 0;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="container header-top">
+        <div class="logo">赛马娘<span>资料站</span></div>
+        <nav class="header-nav">
+            <a href="#">首页</a>
+            <a href="#">固有技能</a>
+            <a href="#">角色一览</a>
+            <a href="#">培养指南</a>
+            <a href="#">技能进化</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>赛马娘固有技能完全攻略</h1>
+        <p>固有技能是每一位马娘独一无二的核心技能，在比赛中往往成为扭转战局的关键。本文将从解锁条件、发动机制、进化强化、代表性技能解析等多维度，带您全面理解固有技能系统，并围绕固有技能制定更高效的培养策略。</p>
+        <div class="hero-tags">
+            <span># 固有技能</span>
+            <span># 技能进化</span>
+            <span># 赛马娘攻略</span>
+            <span># 培养指南</span>
+            <span># 觉醒解锁</span>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <div class="notice">
+            ⚡ 提示：本页面介绍基于游戏基础机制整理，具体数值与效果请以游戏内最新版本为准。
+        </div>
+    </div>
+
+    <!-- 什么是固有技能 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">什么是固有技能？</h2>
+            <p class="section-sub">理解固有技能在赛马娘培养体系中的核心地位</p>
+            <div class="info-box">
+                <p>固有技能（固有スキル）是每个赛马娘角色专属的独特技能，无法通过通用技能继承获得，也无法被其他马娘装备。固有技能通常在比赛进行到特定阶段时自动触发，具有强大的效果，是角色性能的重要组成。</p>
+                <br>
+                <p>每个马娘在初始状态便拥有自己的固有技能，但需要满足特定条件才能解锁并发动。随着角色觉醒（★1→★5）等级的提升，固有技能会获得强化，在达到★3时技能进化为强化版，效果更加显著。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解锁与发动机制 -->
+    <section class="section" style="background:#eef1f5;">
+        <div class="container">
+            <h2 class="section-title">解锁与发动机制</h2>
+            <p class="section-sub">掌握触发时机，才能让固有技能发挥最大价值</p>
+            <div class="two-col">
+                <div class="info-box">
+                    <h3>🔓 解锁条件</h3>
+                    <ul>
+                        <li><strong>初始解锁：</strong>马娘在获得时即拥有固有技能，但需要通过养成中的事件或觉醒解锁才能在实际比赛中使用。</li>
+                        <li><strong>觉醒解锁：</strong>通过提升角色觉醒等级（需要消耗角色碎片等素材），逐步解锁固有技能的使用权和进化。</li>
+                        <li><strong>★3进化：</strong>当马娘觉醒至★3时，固有技能自动进化为强化版，技能效果和触发条件均有改善。</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>⚙️ 发动规则</h3>
+                    <ul>
+                        <li><strong>自动发动：</strong>固有技能在满足特定条件（如处于队伍中后段、最终弯道、直线冲刺等）时自动触发，无需手动操作。</li>
+                        <li><strong>位置条件：</strong>不同马娘的固有技能对自身位置、比赛阶段、赛道特征有不同要求。</li>
+                        <li><strong>每局限一次：</strong>通常每场比赛固有技能只能发动一次，因此发动时机极为关键。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能进化 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">技能进化系统</h2>
+            <p class="section-sub">从初始版到进化版，固有技能的质变</p>
+            <p>在赛马娘中，固有技能并非一成不变。当角色觉醒等级提升时，固有技能会经历以下变化：</p>
+            <div class="table-wrap">
+                <table>
+                    <tr>
+                        <th>觉醒阶段</th>
+                        <th>技能名称示例</th>
+                        <th>效果说明</th>
+                        <th>解锁条件</th>
+                    </tr>
+                    <tr>
+                        <td>★1（初始）</td>
+                        <td>固有技能（基础版）</td>
+                        <td>效果相对基础，触发条件较为严格</td>
+                        <td>角色获得后通过养成事件解锁</td>
+                    </tr>
+                    <tr>
+                        <td>★2</td>
+                        <td>固有技能（小幅强化）</td>
+                        <td>部分数值提升，触发条件略宽松</td>
+                        <td>觉醒至★2</td>
+                    </tr>
+                    <tr>
+                        <td>★3</td>
+                        <td>固有技能（进化版）</td>
+                        <td>技能名称变化，效果大幅强化，新增额外效果</td>
+                        <td>觉醒至★3（关键节点）</td>
+                    </tr>
+                    <tr>
+                        <td>★4/★5</td>
+                        <td>固有技能（最终强化版）</td>
+                        <td>数值进一步提升，部分角色获得额外特效</td>
+                        <td>觉醒至★4、★5</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 代表性固有技能解析 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">代表性固有技能解析</h2>
+            <p class="section-sub">不同跑法、不同定位的典型固有技能一览</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🎯 末脚爆发型 <span class="rarity">速度型</span></h3>
+                    <div class="effect">技能名：究極の末脚<br>效果：在最终直线时大幅提升速度，若处于第1名以外的位置则额外获得加速度提升</div>
+                    <p>适合差し・追込跑法的马娘，在比赛最后阶段凭借强大的末脚反超对手。</p>
+                    <p class="condition">发动条件：最终直线且名次在50%以后</p>
+                </div>
+                <div class="card">
+                    <h3>🏇 逃げ先行型 <span class="rarity">领跑强化</span></h3>
+                    <div class="effect">技能名：先頭の誓い<br>效果：比赛中期若处于第一名，则持久力消耗降低，并提升速度</div>
+                    <p>适合逃げ跑法的马娘，帮助维持领先优势，防止被反超。</p>
+                    <p class="condition">发动条件：比赛中期处于第1名</p>
+                </div>
+                <div class="card">
+                    <h3>🔄 差し追込型 <span class="rarity">位置调整</span></h3>
+                    <div class="effect">技能名：斬り裂く脚<br>效果：在最终弯道时提升速度并略微回复持久力，若处于第6名之后则效果提升</div>
+                    <p>适合差し、追込马娘，在弯道加速寻找突破口。</p>
+                    <p class="condition">发动条件：最终弯道且名次靠后</p>
+                </div>
+                <div class="card">
+                    <h3>🛡️ 持久力回复型 <span class="rarity">耐力辅助</span></h3>
+                    <div class="effect">技能名：不屈の意志<br>效果：在比赛后半段回复大量持久力，并小幅提升速度</div>
+                    <p>适合需要长距离比赛的先行差し马娘，确保持久力充足。</p>
+                    <p class="condition">发动条件：比赛后半段且持久力低于60%</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ 速度复合型 <span class="rarity">万能型</span></h3>
+                    <div class="effect">技能名：風神の如く<br>效果：进入最终阶段时，若处于前5名则大幅提升速度，若处于后5名则大幅提升加速度</div>
+                    <p>适应多种战况，根据名次获得不同增益，非常灵活。</p>
+                    <p class="condition">发动条件：最终阶段开始时</p>
+                </div>
+                <div class="card">
+                    <h3>💫 特殊状态型 <span class="rarity">战略型</span></h3>
+                    <div class="effect">技能名：勝利への執念<br>效果：比赛最后200米若与前方差距小于2马身，则爆发性提升速度</div>
+                    <p>在胶着局面中发挥决定性作用，实现最后时刻的绝地反击。</p>
+                    <p class="condition">发动条件：最后200米且差距较小</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 培养策略 -->
+    <section class="section" style="background:#eef1f5;">
+        <div class="container">
+            <h2 class="section-title">围绕固有技能的培养策略</h2>
+            <p class="section-sub">如何根据马娘的固有技能制定最优培养方案</p>
+            <div class="two-col">
+                <div class="info-box">
+                    <h3>📈 属性加点方向</h3>
+                    <ul>
+                        <li><strong>速度型固有技能：</strong>优先提升速度和力量，确保在触发技能时拥有足够的加速度基础。</li>
+                        <li><strong>持久力型固有技能：</strong>适当提升持久力和根性，搭配回复技能可以更稳定地发挥。</li>
+                        <li><strong>位置型固有技能：</strong>根据技能触发的位置要求，灵活调整跑法，并在培养时强化对应属性。</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>🧩 技能搭配建议</h3>
+                    <ul>
+                        <li><strong>通用技能互补：</strong>为马娘学习能弥补固有技能空窗期的通用技能，如序盘加速、弯道回复等。</li>
+                        <li><strong>跑法适应性：</strong>确认马娘适合的跑法（逃げ/先行/差し/追込），再选择匹配的辅助卡与技能。</li>
+                        <li><strong>进化优先级：</strong>若核心马娘固有技能在★3时质变，优先将觉醒材料投入该角色。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">常见问题（FAQ）</h2>
+            <p class="section-sub">关于固有技能的高频疑问解答</p>
+            <div class="faq-item">
+                <h4>Q1：固有技能可以继承给其他马娘吗？</h4>
+                <p>不可以。固有技能是每个马娘独有的，无法通过因子继承或技能学习获得。不过，马娘可以通过继承获得其他马娘的"通用技能"。</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q2：固有技能发动失败是什么原因？</h4>
+                <p>固有技能发动需要满足距离、位置、比赛阶段等条件。如果条件不满足，技能不会触发。另外，部分技能在比赛被干扰时也可能无法发动。</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q3：如何快速提升觉醒等级以解锁技能进化？</h4>
+                <p>觉醒需要消耗该马娘的角色碎片。碎片可以通过抽卡、每日碎片副本、活动奖励等途径获取。优先将常用马娘觉醒至★3解锁进化技能是关键。</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q4：固有技能在哪些比赛中最能发挥作用？</h4>
+                <p>不同固有技能适合的比赛距离和场地不同。例如，末脚型技能在长距离比赛中优势明显，而逃げ强化型更适合短距离领跑。建议根据比赛长度和赛道特性选择出场马娘。</p>
+            </div>
+            <div class="faq-item">
+                <h4>Q5：技能进化后名称和效果会改变吗？</h4>
+                <p>是的。当马娘觉醒至★3时，固有技能名称会改变（例如从"末脚の準備"变为"究極の末脚"），效果也会得到大幅强化，包括触发条件宽松化、数值提升、附加额外效果等。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技巧提示 -->
+    <section class="section">
+        <div class="container">
+            <div class="tip-box">
+                <h3>💡 训练员实用技巧</h3>
+                <p>1. 在培养马娘前，先查阅其固有技能的详细发动条件，再决定跑法与属性加点方向。</p>
+                <p>2. 部分马娘的固有技能与特定场地（芝/ダート）或距离（短距离/マイル/中距离/長距離）绑定，培养时需注意。</p>
+                <p>3. 竞技场（チャンピオンズミーティング）中，针对敌方阵容选择能克制其跑法的固有技能马娘，往往能出奇制胜。</p>
+                <p>4. 不要忽视技能进化带来的变化，进化后的固有技能往往会让马娘的实力产生质变。</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <div style="font-size:18px; font-weight:700; color:#fff; margin-bottom:8px;">赛马娘资料站</div>
+                <p style="font-size:13px;">提供赛马娘游戏攻略、角色资料与技能解析</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">攻略投稿</a>
+                <a href="#">友情链接</a>
+                <a href="#">免责声明</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 赛马娘资料站 · 本页面为同人攻略站，与官方无关 · 请支持正版游戏
+        </div>
+    </div>
+</footer>
+
+</body>
+  </html>
